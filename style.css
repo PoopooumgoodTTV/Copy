@@ -12,15 +12,22 @@
 
 html{
     font-size: 62.5%;
-}
-
-body{
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    background-color: black;
-    color: white;
-}
+    
+    html {
+    background: #ff0000;
+background: #10ff00;
+background: -webkit-linear-gradient(left, #10ff00, #3100ff);
+background: -moz-linear-gradient(left, #10ff00, #3100ff);
+background: -ms-linear-gradient(left, #10ff00, #3100ff);
+background: -o-linear-gradient(left, #10ff00, #3100ff);
+background: linear-gradient(to right, #10ff00, #3100ff);
+  }
+    html {
+        font-family: sans-serif;
+        background-color: #;
+        text-align: center;
+        color: #000000;
+    }
 
 header{
     margin-top: 20px;

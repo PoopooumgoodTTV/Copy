@@ -25,7 +25,8 @@
 <small>© TTV 2024 Github .io</small>
 <div class="tooltip">Tooltip</div>
 <script type="text/javascript">
-    const textarea = document.querySelector("#textarea");
+        btn.onmouseenter = () => {
+     const textarea = document.querySelector("#textarea");
     const copybtn = document.querySelector(".button.copy");
     const tooltip = document.querySelector(".tooltip");
 
@@ -52,8 +53,8 @@
 
     // Some basic escaping of pasted HTML tags, not ideal but good enough for this situation.
     textarea.oninput = () => {
-        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class=" "[$1]");
-        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace("").replace("").replace(/(br|span|span class=" "<$1>");
+        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class="ansi-[0-9]*"))>/g,"[$1]");
+        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace(/<.*?>/g,"").replace(/[<>]/g,"").replace(/\[(\/?(br|span|span class="ansi-[0-9]*"))\]/g,"<$1>");
     };
 
     // https://stackoverflow.com/a/61237402
@@ -132,7 +133,7 @@
     let copyTimeout = null;
 
     copybtn.onclick = () => {
-        const toCopy = "`\n" + nodesToANSI(textarea.childNodes, [{ fg: 2, bg: 2, st:2 }]) + "\n`";
+        const toCopy = "```ansi This was made with TTVS help!\n" + nodesToANSI(textarea.childNodes, [{ fg: 2, bg: 2, st:2 }]) + "\n```";
         navigator.clipboard.writeText(toCopy).then(() => {
             if (copyTimeout) clearTimeout(copyTimeout);
 
@@ -154,6 +155,11 @@
             alert(toCopy);
         });
     }
+</script>
+</body>
+</html>
+
+           
 </script>
 </body>
 </html>

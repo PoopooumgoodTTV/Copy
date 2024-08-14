@@ -52,8 +52,8 @@
 
     // Some basic escaping of pasted HTML tags, not ideal but good enough for this situation.
     textarea.oninput = () => {
-        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class="ansi-[0-9]*"))>/g,"[$1]");
-        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace(/<.*?>/g,"").replace(/[<>]/g,"").replace(/\[(\/?(br|span|span class="ansi-[0-9]*"))\]/g,"<$1>");
+        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class=" "[$1]");
+        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace("").replace("").replace(/(br|span|span class=" "<$1>");
     };
 
     // https://stackoverflow.com/a/61237402
@@ -132,7 +132,7 @@
     let copyTimeout = null;
 
     copybtn.onclick = () => {
-        const toCopy = "```ansi\n" + nodesToANSI(textarea.childNodes, [{ fg: 2, bg: 2, st:2 }]) + "\n```";
+        const toCopy = "`\n" + nodesToANSI(textarea.childNodes, [{ fg: 2, bg: 2, st:2 }]) + "\n`";
         navigator.clipboard.writeText(toCopy).then(() => {
             if (copyTimeout) clearTimeout(copyTimeout);
 

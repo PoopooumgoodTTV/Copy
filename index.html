@@ -48,13 +48,7 @@
         "45": "Blurple",
         "46": "Light Gray (60%)",
         "47": "Cream White",
-    };
 
-    // Some basic escaping of pasted HTML tags, not ideal but good enough for this situation.
-    textarea.oninput = () => {
-        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class="ansi-[0-9]*"))>/g,"[$1]");
-        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace(/<.*?>/g,"").replace(/[<>]/g,"").replace(/\[(\/?(br|span|span class="ansi-[0-9]*"))\]/g,"<$1>");
-    };
 
     // https://stackoverflow.com/a/61237402
     document.addEventListener('keydown', event => {
